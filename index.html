@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>subir_fotos_bbw</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Fotos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff0f6;
+            color: #800080;
+            text-align: center;
+        }
+        nav, header, aside, footer {
+            background-color: #ff66b2;
+            padding: 15px;
+            text-align: center;
+            color: white;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .header-img {
+            width: 100px;
+            height: 100px;
+            margin-right: 15px;
+            border-radius: 50%;
+        }
+        nav {
+            border: 2px solid #d14791;
+            border-radius: 30px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s;
+            display: inline-block;
+        }
+        nav a:hover {
+            background: #d14791;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+        }
+        main {
+            width: 90%;
+            max-width: 500px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            margin-top: 20px;
+        }
+        input[type="file"] {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            background: #ffccdd;
+            border: 2px solid #ff66b2;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        input[type="file"]:hover {
+            background: #ff99c8;
+        }
+        button {
+            background-color: #ff66b2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #d14791;
+        }
+        #content {
+            margin-top: 20px;
+        }
+        .photo-entry {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .header-img {
+                margin: 0 0 10px 0;
+            }
+            nav {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                border-radius: 15px;
+                padding: 10px;
+            }
+            nav a {
+                display: block;
+                margin: 5px 0;
+            }
+            main {
+                width: 95%;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://raw.githubusercontent.com/welding30001994/ti/refs/heads/main/WhatsApp%20Image%202025-02-25%20at%2018.06.19.jpeg" alt="Logo" class="header-img">
+        <h1>Bienvenido a Subir Fotos</h1>
+    </header>
+    <nav>
+        <a href="#">Inicio</a> 
+        <a href="#">Galería</a> 
+        <a href="#">Contacto</a>
+    </nav>
+    <div class="container">
+        <main>
+            <article>
+                <h2>Este sitio web es para subir fotos y contenido</h2>
+                <p>Puedes subir imágenes aquí.</p>
+                <input type="file" id="fileInput" accept="image/*">
+                <button onclick="addPhoto()">Subir</button>
+            </article>
+            <div id="content"></div>
+        </main>
+    </div>
+    <footer>
+        <p>&copy; 2025 Subir Fotos. Todos los derechos reservados.</p>
+    </footer>
+    <script>
+        function addPhoto() {
+            const fileInput = document.getElementById('fileInput');
+            const content = document.getElementById('content');
+            
+            if (fileInput.files.length === 0) {
+                alert('Por favor, selecciona una imagen.');
+                return;
+            }
+            
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                const newEntry = document.createElement('div');
+                newEntry.classList.add('photo-entry');
+                newEntry.innerHTML = `
+                    <img src="${e.target.result}" alt="Subida">
+                `;
+                content.appendChild(newEntry);
+                
+                fileInput.value = "";
+            };
+            
+            reader.readAsDataURL(file);
+        }
+    </script>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
